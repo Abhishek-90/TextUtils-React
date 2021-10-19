@@ -1,15 +1,13 @@
-import logo from './logo.svg';
 import Navbar from './Components/Navbar';
 import './App.css';
 import TextForm from './Components/TextForm';
 import React, { useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import About from './Components/About'
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route
+// } from "react-router-dom";
+// import About from './Components/About'
 
 function App() {
   const [darkMode, setDarkMode] = useState('light');
@@ -42,17 +40,10 @@ function App() {
   }
 
   return (
-    <Router>
+      <>
       <Navbar title="TestUtils" aboutText="About Us" mode={darkMode} modeText={darkModeText} darkMode = {toggleMode} greenMode = {changeGreen}/>
-        <Switch>
-          <Route exact path="/">
-            <TextForm heading="Enter your Text to analyze" mode={darkMode} textMode={darkModeText}/>    
-          </Route>
-          <Route exact path="/about">
-            <About/>    
-          </Route>
-        </Switch>
-    </Router>
+      <TextForm heading="Enter your Text to analyze" mode={darkMode} textMode={darkModeText}/>    
+      </>
   );
 }
 
